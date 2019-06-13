@@ -1,5 +1,6 @@
 const { Student, Campus } = require('../database/models');
-const campuses = require('../data/campuses'); // 51 players;
+const campuses = require('../data/campuses');
+const students = require('../data/students');
 
 const populateCampusTable = async (campuses) => {
   for (let i = 0; i < campuses.length; i++) {
@@ -9,11 +10,20 @@ const populateCampusTable = async (campuses) => {
     await builtCampus.save();
   }
 };
+const populateStudentTable = async (students) => {
+  for (let i = 0; i < students.length; i++) {
+    let currentStudent = students[i];
+    let builtStudent = await Student.build(currentStudent);
+    builtStudent.teamId = i + 1;
+    await builtStudent.save();
+  }
+};
 
 const seedDatabase = async () => {
   try {
     // await populateTeamsTable(teams);
     await populateCampusTable(campuses);
+    await populateStudentTable(students);
     // await populateTrainersTable(trainers);
     console.log("Successfully seeded!");
     process.exit(0);
