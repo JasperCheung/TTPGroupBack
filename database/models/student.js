@@ -6,7 +6,8 @@ const Student = db.define("student", {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
+    autoIncrement: true
   },
 
   firstName: {
