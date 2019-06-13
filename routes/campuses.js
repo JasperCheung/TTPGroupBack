@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const bodyParser = require('body-parser');
-const { Campus } = require('../database/models');
-
+const { Campus, Student } = require('../database/models');
 
 router.use(bodyParser.json());
 //serves up all campuses
@@ -66,7 +65,17 @@ router.put('/:id', async (req, res, next) => {
   }
 });
 
-
+router.get('/:id/students', async(req,res,next) => {
+  try {
+    //  SELECT * FROM campuses JOIN students ON campuses."id" = students."campusId";
+    const campuses = await Campus.findAll({where: {
+      id: req.params.id,
+    },include: [Student] });
+    res.json(campuses);
+  } catch (error) {
+    next(error);
+  }
+});
 //edit campus information (including adding/removing students)
 
 

@@ -29,9 +29,9 @@ const Student = db.define("student", {
     defaultValue: "https://m.media-amazon.com/images/M/MV5BMTg1Njg4MzQxNV5BMl5BanBnXkFtZTcwNDgzNDUwMw@@._V1_.jpg"
   },
 
-  campus_id: {
-    type: Sequelize.STRING,
-    allowNull: false
+  campusId: {
+    type: Sequelize.INTEGER,
+    allowNull: true
   },
 
 
