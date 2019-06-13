@@ -10,6 +10,7 @@ router.get("/:id", (req, res, next) => {
 });
 
 // router.post;
+//student create
 // router.put;
 // router.delete;
 
