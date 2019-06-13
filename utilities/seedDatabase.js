@@ -10,6 +10,7 @@ const populateCampusTable = async (campuses) => {
     await builtCampus.save();
   }
 };
+
 const populateStudentTable = async (students) => {
   for (let i = 0; i < students.length; i++) {
     let currentStudent = students[i];
@@ -21,10 +22,10 @@ const populateStudentTable = async (students) => {
 
 const seedDatabase = async () => {
   try {
-    // await populateTeamsTable(teams);
+
     await populateCampusTable(campuses);
     await populateStudentTable(students);
-    // await populateTrainersTable(trainers);
+
     console.log("Successfully seeded!");
     process.exit(0);
   }

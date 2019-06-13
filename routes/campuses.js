@@ -70,8 +70,6 @@ router.put('/:id', async (req, res, next) => {
 //edit campus information (including adding/removing students)
 
 
-// router.post;
-// router.put;
-// router.delete;
+
 
 module.exports = router;
