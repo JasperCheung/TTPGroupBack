@@ -81,6 +81,8 @@ const configureApp = () => {
 const bootApp = async () => {
   await syncDatabase();
   await configureApp();
+  await app.listen('5000');
+  await console.log("listening on port 5000");
 };
 
 // Main function invocation;
