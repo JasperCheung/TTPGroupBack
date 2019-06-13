@@ -16,10 +16,20 @@ router.get("/", (req, res, next) => {
 
 });
 
-
-router.get("/:id", (req, res, next) => {
-  res.json(`this is campuses ${req.params.id}`);
+ router.get('/:id', async (req, res, next) => {
+  try {
+    //  SELECT * FROM students WHERE id = 'req.params.id'
+    let campus = await Campus.findByPk(req.params.id);
+    if (campus) {
+      res.json(campus);
+    } else {
+      res.status(404).send('Campus not found');
+    }
+  } catch (error) {
+    next(error);
+  }
 });
+
 
 router.post("/submit", (req,res,next) => {
   console.log(req.body);
