@@ -41,6 +41,11 @@ router.post('/', async (req, res, next) => {
 //delete campus
 router.delete('/:id', async (req, res, next) => {
   try {
+    const deleteCampusIds = await Student.update({campusId: null}, {
+      where: { campusId: req.params.id},
+      returning: true,
+      plain: true,
+    });
     //  DELETE FROM campus WHERE id = req.prams.id
     const deleteCount = await Campus.destroy({
       where: { id: req.params.id },
