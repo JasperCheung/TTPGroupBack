@@ -71,7 +71,7 @@ router.get('/:id/students', async(req,res,next) => {
     const campuses = await Campus.findAll({where: {
       id: req.params.id,
     },include: [Student] });
-    res.json(campuses);
+    res.json(campuses[0]);
   } catch (error) {
     next(error);
   }
