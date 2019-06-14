@@ -8,3 +8,5 @@ In another terminal
 ```bash
 $ npm run seed
 ```
+
+Run with [frontend](https://github.com/jaspercheung/ttpgroupfront)
