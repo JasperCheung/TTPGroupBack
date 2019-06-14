@@ -79,6 +79,9 @@ router.get('/:id/campus', async(req,res,next) => {
   }
 });
 
+
+
+
 //edit campus information (including adding/removing students)
 
 

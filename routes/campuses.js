@@ -81,6 +81,25 @@ router.get('/:id/students', async(req,res,next) => {
     next(error);
   }
 });
+
+//remove student from campus
+router.put('/:id/students/:studentId', async (req, res, next) => {
+  try {
+    //  UPDATE campuses SET "col1" = 'val1', "col2" = 'val2' WHERE id = req.params.id
+    let updatedStudentInfo = await Student.update({
+      campusId :null
+    }, {
+      where: { id: req.params.studentId,
+               campusId: req.params.id},
+      returning: true,
+      plain: true,
+    });
+    res.json(updatedStudentInfo[1]);
+  } catch (err) {
+    next(err);
+  }
+});
+
 //edit campus information (including adding/removing students)
 
 
