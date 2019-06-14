@@ -1,6 +1,7 @@
 # TTP Campuses app backend
 
 ```bash
+$ npm i
 $ npm start
 ```
 
