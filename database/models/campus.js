@@ -16,7 +16,7 @@ const Campus = db.define("campus", {
   },
   numStudents: {
     type: Sequelize.INTEGER,
-    allowNull: true
+    defaultValue: 0
   },
   image: {
     type: Sequelize.STRING,

@@ -73,7 +73,17 @@ router.get('/:id/campus', async(req,res,next) => {
     const students = await Student.findAll({where: {
       id: req.params.id,
     },include: [Campus] });
-    res.json(students[0]);
+    const campuses = await Campus.findAll();
+    res.json({
+      id: students[0].id,
+      firstName: students[0].firstName,
+      lastName: students[0].lastName,
+      gpa: students[0].gpa,
+      image: students[0].image,
+      campusId: students[0].campusId,
+      campus: students[0].campus,
+      campuses:campuses
+    });
   } catch (error) {
     next(error);
   }

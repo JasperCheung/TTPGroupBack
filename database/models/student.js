@@ -34,7 +34,10 @@ const Student = db.define("student", {
     allowNull: true
   },
 
-
+  gpa: {
+    type: Sequelize.FLOAT,
+    allowNull: false
+  }
 
 });
 
